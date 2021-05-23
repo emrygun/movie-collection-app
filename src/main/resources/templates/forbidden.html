@@ -1,0 +1,11 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="head/head :: headFragment('Movie Collection')">
+        <body>
+            <nav th:replace="component/navbar :: navbarFragment('Home')" />
+            <div class="container" style="text-align: center;">
+                <div class="fa fa-lock" style="margin-top: 15vh; font-size: 150px"></div>
+                <div style="font-size: 50px; font-weight: bolder;" class="h1">You DON'T Have Permission</div>
+            </div>
+        </body>
+</html>

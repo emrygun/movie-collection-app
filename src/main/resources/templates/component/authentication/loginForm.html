@@ -1,0 +1,22 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <div th:fragment="loginFormFragment">
+        <div class="login-form">
+            <form th:action="@{/login}" method="post">
+                <h2 class="text-center">Log in</h2>
+                <div class="form-group">
+                    <input type="text" name="username" class="form-control" placeholder="Username" required >
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" class="form-control" placeholder="Password" required >
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">Log in</button>
+                </div>
+            </form>
+            <p class="text-center"><a href="/register">Create an Account</a></p>
+            <div th:if="${param.error}" class="alert alert-danger text-center" role="alert">Wrong Username or Password</div>
+            <div th:if="${param.logout}" class="alert alert-success text-center" role="alert">Successfully Logged Out</div>
+            <div th:if="${param.newUser}" class="alert alert-success text-center" role="alert">Successfully Registered</div>
+        </div>
+    </div>
+</html>
