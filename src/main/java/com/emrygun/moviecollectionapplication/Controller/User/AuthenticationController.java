@@ -1,8 +1,6 @@
-package com.emrygun.moviecollectionapplication.Controller;
+package com.emrygun.moviecollectionapplication.Controller.User;
 
-import com.emrygun.moviecollectionapplication.Model.User.ApplicationUser;
-import com.emrygun.moviecollectionapplication.Model.User.Role;
-import com.emrygun.moviecollectionapplication.Repository.ApplicationUserRepository;
+import com.emrygun.moviecollectionapplication.Model.ApplicationUser;
 import com.emrygun.moviecollectionapplication.Service.ApplicationUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -24,24 +22,22 @@ public class AuthenticationController {
             return "login";
         else return "redirect:/";
     }
+    @GetMapping("/denied")
+    public String NoPermissionPage() {
+        return "forbidden";
+    }
 
-    @RequestMapping("register")
-    public String registerForm(Model model) {
+    @GetMapping("register")
+    public String registerUser(Model model) {
         ApplicationUser applicationUser = new ApplicationUser();
         model.addAttribute("applicationUser", applicationUser);
         return "register";
     }
-
     @PostMapping("register/newUser")
     public String registerUser(@ModelAttribute ApplicationUser applicationUser) {
         if (userService.registerUser(applicationUser))
             return "redirect:/login?newUser";
         else
             return "redirect:/register?error";
-    }
-
-    @GetMapping("/denied")
-    public String NoPermissionPage() {
-        return "forbidden";
     }
 }

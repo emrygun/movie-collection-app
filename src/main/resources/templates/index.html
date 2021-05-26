@@ -3,6 +3,6 @@
     <head th:replace="head/head :: headFragment('Movie Collection')">
     <body>
         <nav th:replace="component/navbar :: navbarFragment('Home')" />
-        <h1>Hello World</h1>
+        <div th:replace="component/tables/movieTable :: movieTableFragment()" />
     </body>
 </html>

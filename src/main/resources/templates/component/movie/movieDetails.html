@@ -1,0 +1,49 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <!--/*@thymesVar id="movie" type="com.emrygun.moviecollectionapplication.Model.Movie.Movie"*/-->
+    <div th:fragment="userMovieFragment()" class="row justify-content-center" th:object="${movie}">
+        <div class="container col-md-10">
+            <div class="row">
+                <div class="col-md-3">
+                    <img th:src="@{'/photos/' + ${movie.mediaMD5} + '.png'}"
+                         class="figure-img img-fluid rounded" style="width:180px;" />
+                </div>
+                <div class="col-md-5">
+                    <h3 style="margin-bottom: -5px; font-weight: bold;">
+                        [[${movie.name}]]
+                    </h3>
+                    <span>
+        <small><i>[[${movie.genre}]]</i></small>
+        <small><i>[[${movie.year}]]</i></small>
+      </span>
+                    <hr style="margin: 0 auto;">
+                    <article style="min-height: 60px;">
+                        [[${movie.description}]]
+                    </article>
+                    <small>Languages: </small>
+                    <small>[[${movie.languages}]]</small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <h3>
+                        Actors
+                    </h3>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col-md-5">Full Name</th>
+                            <th scope="col-md-5">Role</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Mark</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</html>

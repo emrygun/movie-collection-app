@@ -1,31 +1,44 @@
 <html xmlns:th="http://www.thymeleaf.org">
-    <table th:fragment="userTableFragment(userList)" class="table table.sm">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Roles</th>
-                <th scope="col">Operations</th>
-            </tr>
-        </thead>
-        <tbody>
-            <th:block th:each="user : ${userList}">
-            <tr>
-                <th scope="row">[[${user.id}]]</th>
-                <td>[[${user.userName}]]</td>
-                <td>[[${user.roles}]]</td>
-                <td>
-                    <a href="#" style="margin-inline-end: 20px">
-                        <span class="fa fa-address-card-o" style="margin-inline-end: 5px"/>
-                        <span>Edit Role</span>
-                    </a>
-                    <a href="#">
-                        <span class="fa fa-trash-o" style="margin-inline-end: 5px"/>
-                        <span>Remove</span>
-                    </a>
-                </td>
-            </tr>
-            </th:block>
-        </tbody>
-    </table>
+<div class="container" th:fragment="movieTableFragment()">
+    <a href="/createMovie" class="btn btn-sm btn-primary">Create New</a>
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-image">
+                <thead>
+                <tr>
+                    <th scope="col">Movie Name</th>
+                    <th scope="col">Genre</th>
+                    <th scope="col">Year</th>
+                    <th scope="col">Operations</th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--/*@thymesVar id="movies" type="com.emrygun.moviecollectionapplication.Model.Movie.Movie"*/-->
+                    <th:block th:each="movie : ${movies}">
+                        <tr>
+                        <td class="align-middle">[[${movie.name}]]</td>
+                        <td class="align-middle">[[${movie.genre}]]</td>
+                        <td class="align-middle">[[${movie.year}]]</td>
+                        <td class="align-middle">
+                            <a href="#" style="margin-inline-end: 20px">
+                                <span class="fa fa-address-card-o" style="margin-inline-end: 5px"/>
+                                <span>Edit Role</span>
+                            </a>
+                            <a href="#" style="margin-inline-end: 20px">
+                                <span class="fa fa-trash-o" style="margin-inline-end: 5px"/>
+                                <span>Remove</span>
+                            </a>
+                            <a th:href="@{/movieDetails/{id}(id=${movie.id})}">
+                                <span class="fa fa-trash-o" style="margin-inline-end: 5px"/>
+                                <span>Details</span>
+                            </a>
+                        </td>
+                        </tr>
+                    </th:block>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 </html>

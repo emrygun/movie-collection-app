@@ -1,11 +1,11 @@
 <html xmlns:th="http://www.thymeleaf.org">
-    <table th:fragment="userTableFragment(userList)" class="table table.sm">
+    <table th:fragment="userTableFragment(userList)" class="table table.sm justify-content-center">
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Roles</th>
-                <th scope="col">Operations</th>
+                <th class="col-md-3" scope="col">Name</th>
+                <th class="col-md-5" scope="col">Roles</th>
+                <th class="col-md-5" scope="col">Operations</th>
             </tr>
         </thead>
         <tbody>
@@ -13,7 +13,7 @@
             <tr>
                 <th scope="row">[[${user.id}]]</th>
                 <td>[[${user.userName}]]</td>
-                <td>[[${user.roles}]]</td>
+                <td>[[${user.role}]]</td>
                 <td>
                     <a href="#" style="margin-inline-end: 20px">
                         <span class="fa fa-address-card-o" style="margin-inline-end: 5px"/>

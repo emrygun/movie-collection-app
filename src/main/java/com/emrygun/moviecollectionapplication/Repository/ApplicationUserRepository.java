@@ -1,6 +1,6 @@
 package com.emrygun.moviecollectionapplication.Repository;
 
-import com.emrygun.moviecollectionapplication.Model.User.ApplicationUser;
+import com.emrygun.moviecollectionapplication.Model.ApplicationUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

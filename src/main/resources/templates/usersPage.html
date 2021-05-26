@@ -3,8 +3,8 @@
     <head th:replace="head/head :: headFragment('Movie Collection')">
         <body>
             <nav th:replace="component/navbar :: navbarFragment('Users')" />
-            <div class="container">
-                <div class="row justify-content-center col-15">
+            <div class="container col-8">
+                <div class="row justify-content-md-center">
                     <table th:replace="component/tables/userTable :: userTableFragment(${userList})" />
                 </div >
             </div>

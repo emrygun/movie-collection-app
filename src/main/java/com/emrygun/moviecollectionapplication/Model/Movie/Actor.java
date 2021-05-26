@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "actor")
@@ -18,4 +19,8 @@ public class Actor {
 
     @Column(nullable = false)
     private String fullName;
+
+    @Column(nullable = true)
+    private String role;
+
 }

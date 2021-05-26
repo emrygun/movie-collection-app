@@ -1,7 +1,7 @@
 package com.emrygun.moviecollectionapplication.Repository;
 
-import com.emrygun.moviecollectionapplication.Model.User.ApplicationUser;
-import com.emrygun.moviecollectionapplication.Model.User.Role;
+import com.emrygun.moviecollectionapplication.Model.ApplicationUser;
+import com.emrygun.moviecollectionapplication.Model.ApplicationUser.Role;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -19,13 +19,13 @@ class ApplicationUserRepositoryTest {
     @Test
     public void testCreateUser() {
         ApplicationUser user = new ApplicationUser("user", "user");
-        user.addRole(Role.roleUser);
+        user.setRole(Role.USER);
 
         ApplicationUser admin = new ApplicationUser("admin", "admin");
-        admin.addRole(Role.roleAdmin);
+        admin.setRole(Role.ADMIN);
 
         ApplicationUser founder = new ApplicationUser("founder", "founder");
-        founder.addRole(Role.roleFounder);
+        founder.setRole(Role.FOUNDER);
 
         repo.save(user);
         repo.save(admin);
