@@ -1,0 +1,35 @@
+version: '2.1'
+
+services:
+  movie-collection-app:
+    container_name: app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: movie-collection-app:latest
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/movieCollectionDatabase
+      - TESTFOUNDER_USERNAME=testfounder
+      - TESTFOUNDER_password=testfounder
+    ports:
+      - 8080:8080
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
+    restart: always
+    environment:
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=movieCollectionDatabase
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - 3306:3306
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10

@@ -20,10 +20,6 @@ class RootPageControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @BeforeAll
-    void createWhitelistedUser() {
-    }
-
     @Test
     @WithMockUser(username = "user", password = "pwd", roles = "USER")
     void UserRoleLoginTest() throws Exception{

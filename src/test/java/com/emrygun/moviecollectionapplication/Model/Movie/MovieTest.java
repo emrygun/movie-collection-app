@@ -1,9 +1,7 @@
 package com.emrygun.moviecollectionapplication.Model.Movie;
 
-import com.emrygun.moviecollectionapplication.Model.ApplicationUser;
 import com.emrygun.moviecollectionapplication.Repository.ApplicationUserRepository;
 import com.emrygun.moviecollectionapplication.Repository.MovieRepository;
-import org.junit.Ignore;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

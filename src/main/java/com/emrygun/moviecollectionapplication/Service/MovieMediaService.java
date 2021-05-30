@@ -12,7 +12,7 @@ import java.security.MessageDigest;
 
 @Service
 public class MovieMediaService {
-    @Value("${mediaService.path}")
+    @Value("${mediaservice.path}")
     private String photosFolderPath;
 
     /**
