@@ -1,0 +1,10 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="head/head :: headFragment('Edit Movie')">
+    <body>
+        <nav th:replace="component/navbar :: navbarFragment('Edit Movie')" />
+        <div class="container col-8" style="margin-top: 20px; margin-bottom: 50px;">
+            <div th:replace="component/movie/create_editMovie :: create_editMovieFragment(${movieGenre}, ${movieLanguage}, 'edit')" />
+        </div>
+    </body>
+</html>

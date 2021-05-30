@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="head/head :: headFragment('Create New Movie')">
+    <head th:replace="head/head :: headFragment('Movie Details')">
     <body>
-        <nav th:replace="component/navbar :: navbarFragment('Home')" />
+        <nav th:replace="component/navbar :: navbarFragment('Details')" />
         <div class="container col-8" style="margin-top: 20px; margin-bottom: 50px;">
             <div th:replace="component/movie/movieDetails :: userMovieFragment()" />
         </div>

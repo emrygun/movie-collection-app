@@ -1,15 +1,15 @@
 <html xmlns:th="http://www.thymeleaf.org">
-    <div th:fragment="newMovieFragment(movieGenreList, movieLanguageList)" class="row justify-content-center">
+    <div th:fragment="create_editMovieFragment(movieGenreList, movieLanguageList, edit_create)" class="row justify-content-center">
         <!--/*@thymesVar id="movie" type="com.emrygun.moviecollectionapplication.Model.Movie.Movie"*/-->
-        <form action="#" th:action="@{/createMovie/create}" th:object="${movie}" method="post" enctype="multipart/form-data">
-            <div class="container">
-                <h1 class="font-weight-bold">
-                    Create Movie
+        <form action="#" th:action="@{/movie/create_edit/} + ${edit_create}" th:object="${movie}" method="post" enctype="multipart/form-data">
+            <div class="container col-8">
+                <h1 class="font-weight-bold" th:text="${edit_create == 'create'} ? 'Create Movie' : 'Edit Movie'">
                 </h1>
                 <hr />
                 <div class="row">
                     <div class="col">
                         <div class="form-group">
+                            <input type="hidden" th:field="*{id}" />
                             <label>Movie Name</label>
                             <input th:field="*{name}" type="text" class="form-control" placeholder="Name" required>
                         </div>
@@ -42,32 +42,40 @@
                     </div>
                 </div>
                 <hr />
+                <div class="row col-10">
                 <div class="form-group form-inline">
-                    <label class="h4">Add Actor: </label>
-                    <input name="actorName" type="text" class="form-control mx-sm-3" placeholder="Full Name">
-                    <input name="actorRole" type="text" class="form-control mx-sm-2" placeholder="Role">
-                    <button name="action" value="addUser" class="btn btn-secondary btn-sm">
-                        Add
-                    </button>
+                    <label class="h4">Actors: </label>
                 </div>
                 <table class="table table.sm">
                     <thead>
                     <tr>
+                        <th scope="col">ID</th>
                         <th scope="col" style="width: 300px">Actor Full Name</th>
                         <th scope="col" style="width: 300px">Role</th>
+                        <th scope="col" style="width: 300px">
+                            <button type="submit" name="editRow" value="-1">Add Row</button>
+                        </th>
                     </tr>
                     </thead>
                     <tbody>
-                    <th:block>
-                        <tr>
-                            <td>Emre</td>
-                            <td>Dev</td>
+                        <tr th:each="actors, id : *{actors}">
+                        <td th:text="${id.count}"></td>
+                            <td>
+                                <input type="text" th:field="*{actors[__${id.index}__].fullName}" required/>
+                            </td>
+                            <td>
+                                <input type="text" th:field="*{actors[__${id.index}__].role}" />
+                            </td>
+                            <td>
+                            <button type="submit" name="editRow" class="fa fa-trash-o btn btn-outline-secondary"
+                                    th:value="${id.index}" />
+                            </td>
                         </tr>
-                    </th:block>
                     </tbody>
                 </table>
+            </div>
                 <div class="row justify-content-md-center">
-                    <button name="submitMovie" type="submit" class="btn btn-outline-primary my-1 col-md-3 ">
+                    <button name="save" th:value="${movieId}" type="submit" class="btn btn-outline-primary my-1 col-md-3 ">
                         Submit Movie
                     </button>
                 </div>

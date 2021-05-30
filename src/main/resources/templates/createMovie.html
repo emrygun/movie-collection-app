@@ -2,9 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head th:replace="head/head :: headFragment('Create New Movie')">
     <body>
-        <nav th:replace="component/navbar :: navbarFragment('Home')" />
+        <nav th:replace="component/navbar :: navbarFragment('New Movie')" />
         <div class="container col-8" style="margin-top: 20px; margin-bottom: 50px;">
-            <div th:replace="component/movie/newMovie :: newMovieFragment(${movieGenre}, ${movieLanguage})" />
+            <div th:replace="component/movie/create_editMovie :: create_editMovieFragment(${movieGenre}, ${movieLanguage}, 'create')" />
         </div>
     </body>
 </html>

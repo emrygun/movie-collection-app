@@ -12,7 +12,7 @@
                         [[${movie.name}]]
                     </h3>
                     <span>
-        <small><i>[[${movie.genre}]]</i></small>
+        <small><i>[[${movie.genre}]],</i></small>
         <small><i>[[${movie.year}]]</i></small>
       </span>
                     <hr style="margin: 0 auto;">
@@ -31,19 +31,33 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th scope="col-md-5">Full Name</th>
+                            <th scope="col-md-5">Actor FullName</th>
                             <th scope="col-md-5">Role</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Mark</td>
+                        <tr th:each="actor : ${movie.actors}">
+                            <td scope="col-md-5">[[${actor.fullName}]]</td>
+                            <td scope="col-md-5">[[${actor.role}]]</td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
+            <hr/>
+            <div class="row">
+                <form style="width: 80px" th:action="@{/movie/edit}" method="post">
+                    <button type="submit" name="movieId" th:value="${movie.id}" class="btn btn-outline-secondary btn-sm" style="margin-inline-end: 20px">
+                        <span class="fa fa-pencil" style="margin-inline-end: 5px"/>
+                        <span>Edit</span>
+                    </button>
+                </form>
+                <form style="width: 110px" th:action="@{/movie/delete}" method="post">
+                    <button type="submit" th:name="movieId" th:value="${movie.id}" class="btn btn-outline-secondary btn-sm" style="margin-inline-end: 20px">
+                        <span class="fa fa-trash-o" style="margin-inline-end: 5px"/>
+                        <span>Remove</span>
+                    </button>
+                </form>
+            </div>
         </div>
-    </div>
 </html>

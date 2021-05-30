@@ -1,15 +1,12 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="head/head :: headFragment('Movie Collection')">
+    <head th:replace="head/head :: headFragment(${username} + '\'s Collection')">
     <body>
-        <nav th:replace="component/navbar :: navbarFragment('Home')" />
+        <nav th:replace="component/navbar :: navbarFragment(${username} + '\'s Collection')" />
         <div class="container col-8" style="margin-top: 20px; margin-bottom: 10px;">
             <div class="row">
-                <div class="col">
-                    <a href="/movie/create" class="btn btn-sm btn-primary">Create New</a>
-                </div>
-                <div style="margin-inline: 50px; margin-left: auto;">
-                    <form action="#" th:action="@{/}" th:method="get">
+                <div style="margin-inline: 50px; margin-left: auto">
+                    <form action="#" th:method="get">
                         <div class="input-group">
                             <div>
                                 <select th:name="genre" class="custom-select col" style="width: 100px">

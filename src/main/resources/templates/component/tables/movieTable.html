@@ -1,16 +1,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
-<div class="container" th:fragment="movieTableFragment()">
-    <a href="/createMovie" class="btn btn-sm btn-primary">Create New</a>
+<div class="container col-8" th:fragment="movieTableFragment()">
     <div class="row">
-        <div class="col-12">
+        <div class="col">
             <table class="table table-image">
                 <thead>
                 <tr>
-                    <th scope="col">Movie Name</th>
+                    <th style="width: 200px;" scope="col">Movie Name</th>
                     <th scope="col">Genre</th>
-                    <th scope="col">Year</th>
+                    <th scope="col">Year <a href="?sort=true" class="fa fa-sort-numeric-desc" /></th>
                     <th scope="col">Operations</th>
-                    <th scope="col"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -21,18 +19,26 @@
                         <td class="align-middle">[[${movie.genre}]]</td>
                         <td class="align-middle">[[${movie.year}]]</td>
                         <td class="align-middle">
-                            <a href="#" style="margin-inline-end: 20px">
-                                <span class="fa fa-address-card-o" style="margin-inline-end: 5px"/>
-                                <span>Edit Role</span>
-                            </a>
-                            <a href="#" style="margin-inline-end: 20px">
-                                <span class="fa fa-trash-o" style="margin-inline-end: 5px"/>
-                                <span>Remove</span>
-                            </a>
-                            <a th:href="@{/movieDetails/{id}(id=${movie.id})}">
-                                <span class="fa fa-trash-o" style="margin-inline-end: 5px"/>
-                                <span>Details</span>
-                            </a>
+                            <div class="row">
+                                <form style="width: 80px" th:action="@{/movie/edit}" method="post">
+                                    <button type="submit" name="movieId" th:value="${movie.id}" class="btn btn-outline-secondary btn-sm" style="margin-inline-end: 20px">
+                                        <span class="fa fa-pencil" style="margin-inline-end: 5px"/>
+                                        <span>Edit</span>
+                                    </button>
+                                </form>
+                                <form style="width: 110px" th:action="@{/movie/delete}" method="post">
+                                    <button type="submit" th:name="movieId" th:value="${movie.id}" class="btn btn-outline-secondary btn-sm" style="margin-inline-end: 20px">
+                                        <span class="fa fa-trash-o" style="margin-inline-end: 5px"/>
+                                        <span>Remove</span>
+                                    </button>
+                                </form>
+                                <form style="width: 100px;" th:action="@{/movie/detail}" method="post">
+                                    <button type="submit" th:name="movieId" th:value="${movie.id}" class="btn btn-outline-secondary btn-sm" style="margin-inline-end: 20px">
+                                        <span class="fa fa-info" style="margin-inline-end: 5px"/>
+                                        <span>Details</span>
+                                    </button>
+                                </form>
+                            </div>
                         </td>
                         </tr>
                     </th:block>

@@ -6,16 +6,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.EnumSet;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "movie")
 @Getter
 @Setter
 @NoArgsConstructor
-public class Movie {
+public class Movie implements Comparable<Movie> {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -33,7 +31,6 @@ public class Movie {
     //MD5 string of the png file.
     private String mediaMD5;
 
-    //MD5 string of the png file.
     private String description;
 
     //User
@@ -41,15 +38,15 @@ public class Movie {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private ApplicationUser user;
 
-    //Many-To-Many relation with Actors
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinTable(
-            name = "movie_actor",
-            joinColumns = @JoinColumn(name = "movie_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "actor_id", referencedColumnName = "id"))
-    private Set<Actor> actors = new HashSet<>();
+    //One-To-Many relation with Actors
+    @ElementCollection
+    @CollectionTable(
+            name="movie_actor",
+            joinColumns=@JoinColumn(name="movie")
+    )
+    private List<Actor> actors = new ArrayList<>();
 
-    //Many-To-One relation with Languages Enum
+    //One-To-Many relation with Languages Enum
     @ElementCollection(targetClass = Language.class, fetch = FetchType.LAZY)
     @JoinTable(
             name = "movie_language",
@@ -61,13 +58,18 @@ public class Movie {
     //Movie genres.
     //Form and movie objects gets the genre constants from here
     public enum Genre {
-        Horror, Comedy, Action, Drama, Adventure;
+        Horror, Comedy, Action, Drama, Adventure
     }
 
     //Movie languages.
     //Form and movie objects gets the language constants from here
     public enum Language {
-        Turkish, English, Italian, German, French;
+        Turkish, English, Italian, German, French
     }
 
+    //Compares movies depending on year
+    @Override
+    public int compareTo(Movie o) {
+        return this.year - o.year;
+    }
 }

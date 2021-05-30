@@ -3,9 +3,9 @@
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th class="col-md-3" scope="col">Name</th>
-                <th class="col-md-5" scope="col">Roles</th>
-                <th class="col-md-5" scope="col">Operations</th>
+                <th class="col-md-2" scope="col">Name</th>
+                <th class="col-md-3" scope="col">Roles</th>
+                <th class="col-md-7" scope="col">Operations</th>
             </tr>
         </thead>
         <tbody>
@@ -14,15 +14,28 @@
                 <th scope="row">[[${user.id}]]</th>
                 <td>[[${user.userName}]]</td>
                 <td>[[${user.role}]]</td>
-                <td>
-                    <a href="#" style="margin-inline-end: 20px">
-                        <span class="fa fa-address-card-o" style="margin-inline-end: 5px"/>
-                        <span>Edit Role</span>
-                    </a>
-                    <a href="#">
-                        <span class="fa fa-trash-o" style="margin-inline-end: 5px"/>
-                        <span>Remove</span>
-                    </a>
+                <td class="align-middle">
+                    <!--/*@thymesVar id="role" type="java.lang.String"*/-->
+                    <div class="row" th:object="${role}">
+                        <form style="width: 110px" th:action="@{/users/getUser/} + ${user.userName}" method="get">
+                            <button type="submit" class="btn btn-outline-secondary btn-sm" style="margin-inline-end: 20px">
+                                <span class="fa fa-info" style="margin-inline-end: 5px"/>
+                                <span>Get User</span>
+                            </button>
+                        </form>
+                        <form th:if="${role == '[ROLE_FOUNDER]'}" style="width: 140px" th:action="@{/users/switchRole}" method="post">
+                            <button type="submit" th:name="swithRole" th:value="${user.id}" class="btn btn-outline-secondary btn-sm" style="margin-inline-end: 20px">
+                                <span class="fa fa-user-o" style="margin-inline-end: 5px"/>
+                                <span>Switch Role</span>
+                            </button>
+                        </form>
+                        <form th:if="${role == '[ROLE_FOUNDER]'}" style="width: 100px;" th:action="@{/users/delete}" method="post">
+                            <button type="submit" th:name="delete" th:value="${user.id}" class="btn btn-outline-secondary btn-sm" style="margin-inline-end: 20px">
+                                <span class="fa fa-trash-o" style="margin-inline-end: 5px"/>
+                                <span>Delete</span>
+                            </button>
+                        </form>
+                    </div>
                 </td>
             </tr>
             </th:block>
