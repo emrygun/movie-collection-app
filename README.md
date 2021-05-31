@@ -32,7 +32,7 @@ This account not belongs to database so it can not create movie entries but can 
 change users roles and get other users collections. Default username and password of this account is "testfounder".
 You can edit the username and password from <em>docker-compose.yml</em> file by adjusting enviroment variables of app entry.
 
-    On line 12 and 13:
+    line 12 and 13:
     - TESTFOUNDER_USERNAME=testfounder
     - TESTFOUNDER_password=testfounder
 
