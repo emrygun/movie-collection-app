@@ -1,11 +1,11 @@
-package com.emrygun.moviecollectionapplication.Service;
+package com.emrygun.moviecollectionapplication.service;
 
-import com.emrygun.moviecollectionapplication.Model.ApplicationUser;
-import com.emrygun.moviecollectionapplication.Model.ApplicationUser.Role;
-import com.emrygun.moviecollectionapplication.Model.Movie.Actor;
-import com.emrygun.moviecollectionapplication.Model.Movie.Movie;
-import com.emrygun.moviecollectionapplication.Repository.ApplicationUserRepository;
-import com.emrygun.moviecollectionapplication.Repository.MovieRepository;
+import com.emrygun.moviecollectionapplication.entity.ApplicationUser;
+import com.emrygun.moviecollectionapplication.entity.ApplicationUser.Role;
+import com.emrygun.moviecollectionapplication.entity.movie.Actor;
+import com.emrygun.moviecollectionapplication.entity.movie.Movie;
+import com.emrygun.moviecollectionapplication.repository.ApplicationUserRepository;
+import com.emrygun.moviecollectionapplication.repository.MovieRepository;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;

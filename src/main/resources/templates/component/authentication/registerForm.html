@@ -1,7 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <div th:fragment="registerFormFragment">
         <div class="login-form">
-            <!--/*@thymesVar id="applicationUser" type="com.emrygun.moviecollectionapplication.Model.ApplicationUser"*/-->
+            <!--/*@thymesVar id="applicationUser" type="com.emrygun.moviecollectionapplication.entity.ApplicationUser"*/-->
             <form action="#" th:action="@{/register/newUser}" th:object="${applicationUser}" method="POST">
                 <h2 class="text-center">Register</h2>
                 <div class="form-group">

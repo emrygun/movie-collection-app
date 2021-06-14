@@ -1,6 +1,6 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <div th:fragment="create_editMovieFragment(movieGenreList, movieLanguageList, edit_create)" class="row justify-content-center">
-        <!--/*@thymesVar id="movie" type="com.emrygun.moviecollectionapplication.Model.Movie.Movie"*/-->
+        <!--/*@thymesVar id="movie" type="com.emrygun.moviecollectionapplication.entity.movie.Movie"*/-->
         <form action="#" th:action="@{/movie/create_edit/} + ${edit_create}" th:object="${movie}" method="post" enctype="multipart/form-data">
             <div class="container col-8">
                 <h1 class="font-weight-bold" th:text="${edit_create == 'create'} ? 'Create Movie' : 'Edit Movie'">

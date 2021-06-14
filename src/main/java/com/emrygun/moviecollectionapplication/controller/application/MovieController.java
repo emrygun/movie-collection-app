@@ -1,9 +1,9 @@
-package com.emrygun.moviecollectionapplication.Controller.Application;
+package com.emrygun.moviecollectionapplication.controller.application;
 
-import com.emrygun.moviecollectionapplication.Model.ApplicationUser;
-import com.emrygun.moviecollectionapplication.Model.Movie.Actor;
-import com.emrygun.moviecollectionapplication.Model.Movie.Movie;
-import com.emrygun.moviecollectionapplication.Service.ApplicationUserService;
+import com.emrygun.moviecollectionapplication.entity.ApplicationUser;
+import com.emrygun.moviecollectionapplication.entity.movie.Actor;
+import com.emrygun.moviecollectionapplication.entity.movie.Movie;
+import com.emrygun.moviecollectionapplication.service.ApplicationUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

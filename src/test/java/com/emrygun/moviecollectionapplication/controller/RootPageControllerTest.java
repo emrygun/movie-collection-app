@@ -1,7 +1,6 @@
-package com.emrygun.moviecollectionapplication.Controller;
+package com.emrygun.moviecollectionapplication.controller;
 
-import com.emrygun.moviecollectionapplication.Controller.User.AuthenticationController;
-import org.junit.jupiter.api.BeforeAll;
+import com.emrygun.moviecollectionapplication.controller.user.AuthenticationController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;

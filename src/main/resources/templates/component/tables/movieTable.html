@@ -12,7 +12,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <!--/*@thymesVar id="movies" type="com.emrygun.moviecollectionapplication.Model.Movie.Movie"*/-->
+                <!--/*@thymesVar id="movies" type="com.emrygun.moviecollectionapplication.entity.movie.Movie"*/-->
                     <th:block th:each="movie : ${movies}">
                         <tr>
                         <td class="align-middle">[[${movie.name}]]</td>

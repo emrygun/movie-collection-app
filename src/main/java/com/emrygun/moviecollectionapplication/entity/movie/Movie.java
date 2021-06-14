@@ -1,6 +1,6 @@
-package com.emrygun.moviecollectionapplication.Model.Movie;
+package com.emrygun.moviecollectionapplication.entity.movie;
 
-import com.emrygun.moviecollectionapplication.Model.ApplicationUser;
+import com.emrygun.moviecollectionapplication.entity.ApplicationUser;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

@@ -1,4 +1,4 @@
-package com.emrygun.moviecollectionapplication.Service;
+package com.emrygun.moviecollectionapplication.service;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

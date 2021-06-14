@@ -1,4 +1,4 @@
-package com.emrygun.moviecollectionapplication.Model.Movie;
+package com.emrygun.moviecollectionapplication.entity.movie;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

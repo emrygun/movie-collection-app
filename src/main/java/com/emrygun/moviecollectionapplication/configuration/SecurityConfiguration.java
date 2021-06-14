@@ -1,6 +1,6 @@
-package com.emrygun.moviecollectionapplication.Configuration;
+package com.emrygun.moviecollectionapplication.configuration;
 
-import com.emrygun.moviecollectionapplication.Model.ApplicationUser;
+import com.emrygun.moviecollectionapplication.entity.ApplicationUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

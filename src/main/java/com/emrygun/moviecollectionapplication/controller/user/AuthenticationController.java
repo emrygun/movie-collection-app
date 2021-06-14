@@ -1,7 +1,7 @@
-package com.emrygun.moviecollectionapplication.Controller.User;
+package com.emrygun.moviecollectionapplication.controller.user;
 
-import com.emrygun.moviecollectionapplication.Model.ApplicationUser;
-import com.emrygun.moviecollectionapplication.Service.ApplicationUserService;
+import com.emrygun.moviecollectionapplication.entity.ApplicationUser;
+import com.emrygun.moviecollectionapplication.service.ApplicationUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;

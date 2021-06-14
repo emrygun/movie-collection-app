@@ -1,7 +1,7 @@
-package com.emrygun.moviecollectionapplication.Service.UserDetail;
+package com.emrygun.moviecollectionapplication.service.userdetail;
 
-import com.emrygun.moviecollectionapplication.Model.ApplicationUser;
-import com.emrygun.moviecollectionapplication.Repository.ApplicationUserRepository;
+import com.emrygun.moviecollectionapplication.entity.ApplicationUser;
+import com.emrygun.moviecollectionapplication.repository.ApplicationUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

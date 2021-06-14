@@ -1,6 +1,6 @@
 package com.emrygun.moviecollectionapplication;
 
-import com.emrygun.moviecollectionapplication.Repository.ApplicationUserRepository;
+import com.emrygun.moviecollectionapplication.repository.ApplicationUserRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;

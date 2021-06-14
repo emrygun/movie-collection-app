@@ -1,7 +1,7 @@
-package com.emrygun.moviecollectionapplication.Repository;
+package com.emrygun.moviecollectionapplication.repository;
 
-import com.emrygun.moviecollectionapplication.Model.ApplicationUser;
-import com.emrygun.moviecollectionapplication.Model.ApplicationUser.Role;
+import com.emrygun.moviecollectionapplication.entity.ApplicationUser;
+import com.emrygun.moviecollectionapplication.entity.ApplicationUser.Role;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
